@@ -1,45 +1,45 @@
 # Sorting
 
-In this first section of the guide, we outline information related to
-pre-processing neural recordings, including spike sorting.
+In this section of the guide, we outline information related to
+spike sorting human single-neuron recordings.
 
 ## Overview
 
-After neural data has been collected, the first key pre-processing step is spike sorting.
+After neural data has been collected, a key pre-processing step is spike sorting.
 
 Note that HSNPipeline does not implement or offer any spike sorters -
 all spike sorting should be done with an existing / external spike sorter.
 
-To support spike sorting, HSNPipeline offers a template structure for
-doing spike sorting with it's preferred spike sorter (combinato).
+To support spike sorting, HSNPipeline offers functionality for spike-sorting,
+that is built into the pre-processing template. This template structure includes
+support for doing spike sorting with it's preferred spike sorter (combinato).
+
 Note that using this pipeline overall does not depend on using this particular
 spike sorter (or the sorting template). If collected data is already sorted
-and/or is to be sorted with a different spike sorter, you can skip ahead.
+and/or is to be sorted with a different spike sorter, you can integrating
+existing spike sorting procedures & results into the pre-processing template
+and/or skip ahead to data conversion.
 
 ## Resources
 
-This template uses a series of existing tools and resources to provide a procedure for managing
+Spike sorting in HSNPipeline uses several existing tools and resources for managing
 spike sorting. The key resources and tools are briefly described in this section.
+
+As well as the below mentioned tool, spike sorting in the
+HSNPipeline requires the
+[hsntools](https://hsnpipeline.github.io/hsntools/) module.
 
 ### Combinato
 
-The current template uses [Combinato](https://github.com/jniediek/combinato/)
-for spike sorting.
+The current template uses [Combinato](https://github.com/HSNPipeline/combinato/)
+which is a Python tool for spike sorting. Note that this link is to a HSNPipeline
+version of `combinato`, with some minor updates to work with the pipeline.
 
-Combinato is a Python tool for spike sorting:
+The following materials are available from the developers of `combinato`:
 - For tutorials and documentation, see the
 [Wiki](https://github.com/jniediek/combinato/wiki/)
 - Combinato is described in
 [this paper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0166598)
-
-### neo
-
-To run spike sorting, we need to load and access neural data - which may come in various
-different file formats depending on the system and amplifier used.
-
-As a general purpose tool to load variable different neuroscience data formats,
-this template uses the [neo](https://github.com/NeuralEnsemble/python-neo)
-Python module.
 
 ### Other Spike Sorters & Resources
 
@@ -62,18 +62,22 @@ SpikeInterface is a Python based workflow tool for spike sorting:
 - SpikeInterface is described in
 [this paper](https://elifesciences.org/articles/61834)
 
-## SortTEMPLATE
+## PrepTEMPLATE
 
-The [SortTEMPLATE](https://github.com/HSNPipeline/SortTEMPLATE) provides a
-template structure for managing spike sorting.
+The [PrepTEMPLATE](https://github.com/HSNPipeline/PrepTEMPLATE) provides a
+template structure for pre-processing of HSN related data, including spike sorting.
 
-Briefly, this template includes:
-- An organized layout and utilities for running the `combinato` spike sorter, including helper code and functions to run automatic spike detection procedures, and guidance on doing manual curation.
+Related to spike sorting, this template (in combination with `hsntools`) includes:
+
+- Support for running the `combinato` spike sorter, including helper code and functions to run automatic spike detection procedures, and guidance on doing manual curation.
 - An export process for extracting curated spike sorting results ready to be loaded and stored in the output files during the data conversion process.
 
 ## Running Combinato
 
-Notes on using the Combinato spike sorter:
+This section includes general notes & guidance for using the Combinato spike sorter.
+
+If you are using this template as part of the JacobsLab, you can also use
+[this guide](XX) for running this process on the lab server.
 
 ### Automatic Processing Notes
 
@@ -119,9 +123,9 @@ Combinato saves out and edits a custom set of files.
 To move to the next part of the pipeline (converting data to NWB), we need to load
 and extract
 
-This process can be done with the `extract_sorted.py` Python script that is included in the Sorting
-Template. For more information about what files this process loads, and how they are organized, see the
-[sorting IO](https://github.com/HSNPipeline/hsntools/blob/main/hsntools/sorting/io.py) functionality in hsntools.
+This process can be done with the `extract_sorted.py` Python script that is included
+in the Preprocessing Template. For more information about what files this process loads, and how they are organized, see the sorting related IO functionality in
+[hsntools](https://github.com/HSNPipeline/hsntools/).
 
 Combinato uses the following language within it's files:
 - `class`: events collected together through the clustering process

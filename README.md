@@ -5,6 +5,7 @@ HSNPipeline is a pipeline for processing and analyzing single-neuron data from h
 ## Table of Contents
 
 - [Overview](#overview)
+- [Guides](#guides)
 - [Templates](#templates)
 - [Resources](#resources)
 - [Tools](#tools)
@@ -13,24 +14,25 @@ HSNPipeline is a pipeline for processing and analyzing single-neuron data from h
 ## Overview
 
 HSNPipeline includes templates, code, and resources for
-working with single-neuron data collected from human subjects.
+working with human single-neuron (HSN) data.
 
-Human single-neuron data is typically collected across multiple sites,
-which may include different amplifiers, file types, etc.
-It then requires specific procedures for spike-sorting and analyses, that
-are oriented to the specifics of human data.
+This pipeline implements and uses standardized tools and data formats,
+organized into a standard workflow that can be used for human single-neuron data.
+In doing so, it pulls from and adopts existing resources from across neuroscience,
+curated and extended such that they support the specifics of human single-neuron data.
 
-To address these needs, this pipeline implements and uses standardized tools and data
-formats, organized into a standard workflow that can be used for human single-neuron data.
+On this website, you will find guides for key steps of working with the HSNPipeline data,
+including pre-processing & spike sorting, conversion to a standardized data format,
+and data analysis.
 
 ## Templates
 
 This pipeline is organized into multiple components, including:
-- SORT: basic pre-processing of the neural data, including spike sorting
-    - This is available in the [SortTEMPLATE](https://github.com/HSNPipeline/SortTEMPLATE)
-- CONVERT: converting the data to a standard data format, including neural and behavioural data
+- PREP: basic pre-processing of HSN related data, including spike sorting
+    - This is available in the [PrepTEMPLATE](https://github.com/HSNPipeline/PrepTEMPLATE)
+- CONVERT: converting the data to a standardized data format (NWB)
     - This is available in the [ConvertTEMPLATE](https://github.com/HSNPipeline/ConvertTEMPLATE)
-- ANALYZE: analyzing the data, including analyzing single-neuron activity and relating it to behaviour
+- ANALYZE: analyzing HSN data, including task-based analyses
     - This is available in the [AnalyzeTEMPLATE](https://github.com/HSNPipeline/AnalyzeTEMPLATE)
 
 ## Resources
@@ -71,31 +73,31 @@ repository for some examples NWB files.
 
 This pipeline also has associated software tools that are available to be used with the pipeline.
 
-Note that these tools are organized as independent Python modules and thus can be used
-with or without using the broader pipeline.
+Note that these tools are organized as independent Python modules and thus can
+be used with or without using the broader pipeline.
 
 ### hsntools
 
 The [hsntools](https://github.com/HSNPipeline/hsntools)
-mini-module contains general, task-agnostic, utilities that can be used to convert data to NWB format.
+mini-module contains general utilities for working with the HSN pipeline.
 
-This module should be installed for doing data conversion, and is used by the ConvertTEMPLATE.
-Any general conversion utilities, that can be used across tasks and datasets, should be added to and used from this module.
+This module is required for using the templates provided by the pipeline.
 
-### Spiketools
+### spiketools
 
 The [spiketools](https://github.com/spiketools/spiketools)
-module is an open-source collection of analysis tools for working with single-neuron activity,
-specifically designed for analyzing human data.
+module is an open-source collection of analysis tools for working with
+single-neuron data, specifically designed for analyzing human data.
 
-Spiketools implements general analysis code, which can be used for analyzing data across tasks and contexts.
+Spiketools implements general analysis code, which can be used for
+analyzing data across tasks and contexts.
 
 ## Contributing
 
 'HSNPipeline' welcomes contributions and suggestions from the community!
 
-If you would suggest an edit to a part of the project, please open an issue on Github, on the relevant repository,
-and/or directly open a pull request with the suggested update.
+If you would suggest an edit to a part of the project, please open an issue on Github,
+on the relevant repository, and/or directly open a pull request with the suggested update.
 
 Note that to interact with the HSNPipeline organization you must follow the
 [Code of Conduct](https://github.com/HSNPipeline/Overview/blob/main/CODE_OF_CONDUCT.md).

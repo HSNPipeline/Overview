@@ -1,27 +1,29 @@
 # Conversion
 
-The second step in the template is data conversion, including collecting and converting
-human single-neuron data along with a structured representation of any and all behavioural
-data and task information such that all the information can be organized together into
-standard data files.
+After pre-processing, the next step in the template is data conversion,
+including collecting and converting human single-neuron data along with
+a structured representation of any and all behavioural data and task information
+such that all the information can be organized together into standardized data files.
 
 This template doesn't assume any particular file type or structure or structure within files,
 and should be applicable to a broad range of recording files.
 
 ## Overview
 
-Once you have the neural and behavioral data collected, and pre-processing (e.g. spike
-sorting) applied, the next step in the pipeline is to organize the data into a standardized
-data format - specifically the [Neurodata Without Borders format](https://www.nwb.org/).
-
-Note that this template does not implement any data standards, etc, but
-rather provides a structured approach to use existing tools to organize data
-human single-neuron experiments (see the Resources section for what is used).
+Once you have the neural and behavioral data collected, and pre-processing
+and spike sorting has been applied, the next step in the pipeline is to organize
+the data into a standardized data format.
+Specifically, HSNPipeline uses the
+[Neurodata Without Borders format](https://www.nwb.org/),
+which is an existing data standard in common usage within neuroscience.
 
 ## Data Streams
 
-For neural data, this template does not include IO functions for raw data files,
-and custom IO procedures may need to be updated / added.
+For neural data, data conversion assumes that spike sorting has already
+been applied (see pre-processing & sorting guides for information).
+If other information is required from the neural data files, this should be
+extracted through the pre-processing steps and/or can be loaded and added
+from the raw data files through the conversion process.
 
 For behavioral data, this template is generally geared towards parsing task
 related data from a logfile that is saved out into a txt file, which can be
@@ -33,20 +35,20 @@ This pipeline uses a series of existing external tools, standards, and
 resources to provide a template structure for converting data to a standardized data
 format. The key resources and tools are briefly described in this section.
 
-### NWB & pynwb
+As well as the below mentioned tool, data conversion in the
+HSNPipeline requires the
+[hsntools](https://hsnpipeline.github.io/hsntools/) module.
 
-[Neurodata Without Borders](https://www.nwb.org/) is a data standard for neuroscientific data,
-based on using [HDF5](https://www.hdfgroup.org/solutions/hdf5/) files.
+### NWB
+
+[Neurodata Without Borders](https://www.nwb.org/)
+is a data standard for neuroscientific data, based on using
+[HDF5](https://www.hdfgroup.org/solutions/hdf5/) files.
+
+### pynwb
 
 In order to interact read and write NWB files, we use the
 [pynwb](https://pynwb.readthedocs.io/en/stable/) Python library.
-
-### hsntools
-
-The underlying general functionality is all implemented in the
-[hsntools](https://github.com/HSNPipeline/hsntools) module.
-This module is then aliased into the `conv` folder, on top
-of which any needed customizations and additions can be made.
 
 ## ConvertTEMPLATE
 

@@ -23,7 +23,7 @@ The following modules are available:
 ## Templates
 
 The following templates are available:
-- [SortTEMPLATE](https://github.com/HSNPipeline/SortTEMPLATE)
+- [PrepTEMPLATE](https://github.com/HSNPipeline/PrepTEMPLATE)
 - [ConvertTEMPLATE](https://github.com/HSNPipeline/ConvertTEMPLATE)
 - [AnalyzeTEMPLATE](https://github.com/HSNPipeline/AnalyzeTEMPLATE)
 

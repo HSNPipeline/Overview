@@ -57,7 +57,7 @@ The suggested process for developing and applying analyses is as follows:
 - analyses can be developed in notebooks dedicated to each analysis
 - as analyses mature, any custom code can be organized and moved into the local code folder
 - once analyses are ready to run across the data, they can be added / converted into scripts
-- at this point, the entire set of analyses can be run be re-running the scripts
+- at this point, the entire set of analyses can be executed be (re-)running the scripts
 - additional notebooks can be created to collect across analyses, and create final figures
 
 For example, the following would re-run all analyses:

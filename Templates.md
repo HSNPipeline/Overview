@@ -24,7 +24,7 @@ To integrate a new task / project into the general workflow:
     - This repository should load NWB files, and add any custom code needed to analyze the data
 
 Note that these steps are set up to be largely independent, so different parts of the above pipeline
-can generally be used in isolation.
+can be used in isolation.
 
 For more information & guides on these topics, see the HSNPipeline
 [documentation](https://hsnpipeline.github.io/).
@@ -34,19 +34,17 @@ All of the templates in this pipeline follow the general outline of the
 
 ## Prep Template
 
-Neuro-physiological recordings from human subjects that allow for single-neuron analyses
-need to be spike sorted before putative single-neuron activity can be analyzed.
+To get start, the pipeline provides a preprocessing template for organizing
+data files and applying pre-processing procedures to get the data ready for
+conversion to a standardized data format.
 
-In human patients, single-neuron recordings are typically recorded with microwires,
-such as with Behnke-Fried electrodes. Notably, the specifics of these electrodes
-has some idiosyncracies that are different from other types of recordings, such as
-recordings in animal models that often use dense grids of electrodes.
-
-To address this, this pipeline implements a recommended approach for spike sorting
-human single-neuron data, designed to work with microwire recordings.
+Notably, neuro-physiological recordings from human subjects that allow for
+single-neuron detection and analyses need to be spike sorted before putative
+single-neuron activity can be analyzed. The preprocessing template therefore
+includes functionaltiy for spike sorting HSN data.
 
 The [PrepTEMPLATE](https://github.com/HSNPipeline/PrepTEMPLATE)
-contains a template repository for spike sorting data.
+contains a template repository for preprocessing.
 
 ## Convert Template
 

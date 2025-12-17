@@ -1,6 +1,6 @@
 # Sorting
 
-In this section of the guide, we outline information related to
+This section of the guide outlines information related to
 spike sorting human single-neuron recordings.
 
 ## Overview
@@ -16,6 +16,17 @@ spike sorter (or the sorting template). If collected data is already sorted
 and/or is to be sorted with a different spike sorter, you can integrating
 existing spike sorting procedures & results into the pre-processing template
 and/or skip ahead to data conversion.
+
+When considering which spike sorter to use, it's important to consider the
+particulars of the data under study. In human patients, single-neuron recordings
+are often recorded with microwires, such as with Behnke-Fried electrodes.
+Notably, the specifics of these electrodes have some idiosyncrasies that are
+different from other kinds of electrodes, such that they are different from,
+for example devices with dense grids of electrodes as is now common in
+recordings in animal models. As such, it is important to use a spike sorting
+approach that is appropriate for the data. The default spike sorter in the template,
+Combinato, is designed for use with microwire recordings. If other kinds of
+devices have been used, an alternate spike sorter may be needed.
 
 ## Resources
 

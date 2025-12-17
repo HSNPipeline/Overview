@@ -76,15 +76,23 @@ Related to spike sorting, this template (in combination with `hsntools`) include
 This section includes general notes & guidance for using the Combinato spike sorter.
 
 If you are using this template as part of the JacobsLab, you can also use
-[this guide](XX) for running this process on the lab server.
+[this guide](https://hsnpipeline.github.io/sortingrhino/)
+for running this process on the lab server.
 
 ### Automatic Processing Notes
 
-- Event detecting requires a detection polarity (positive or negative)
-    - Only one polarity can be run at a time
-    - BlackRock & Ripple: typically always negative polarity
-    - Neuralynx: uses positive polarity
-- By default, Combinato defaults to 2 rounds of template matching, but this can be changed to do more
+**Polarity**: In Combinato, the event detection process requires setting a
+detection polarity (positive or negative) to use to detect spike events.
+Note that only one polarity can be run at a time, so if you wish to run both, these
+need to be run serially.
+
+Polarities for common recording devices:
+
+- BlackRock & Ripple: typically always negative polarity
+- Neuralynx: uses positive polarity
+
+**Template Matching**: By default, Combinato runs 2 rounds of template matching.
+This can be changed to do more, if desired.
 
 ### Manual Curation
 
@@ -110,33 +118,35 @@ GUI Notes:
     - DO NOT use these labels to mark artifacts, as this does not move or remove the cluster, just gives it a label
 
 Curation Notes:
-- It is generally normal that some channels but no detected spikes, but if whole electrode bundles or subjects have no detected events, you should check the original data, and see if something can be done to improve spike yields (by doing something to the data, and/or tweaking combinato settings).
-- While it is worth quickly checking automatically designated "artifact" & "unassigned" clusters, combinato is usually good at automatically designating this, and this rarely has to be changed.
-- In general, the usual situation is Combinato will detect more clusters / groups than appear to be real units, meaning it is very common to reject clusters / groups and/or merge clusters. As such, the typical outcome of manual curation is to end up with fewer groups than automatically detected.
-- Real units (that can be analyzed) are ideally present across the whole recording. If a unit is only detected during a specific / short time periodic it is likely an artifact. If it does appear to be a real unit (e.g. has a nice waveform), check for other clusters that might reflect the same unit at different time ranges, in case the unit was split and needs to be recombined.
+- It is generally common and expected that some channels may have no detected spikes. However, if whole electrode bundles and/or subjects have no detected events, you should check the original data, and see if something can be done to improve spike detection yields (by doing something to the data, and/or tweaking combinato settings).
+- While it is worth quickly checking automatically designated "artifact" & "unassigned" clusters, combinato is usually pretty good at automatically designating events to these categories, and these designations typically do not have to be changed
+- In general, the usual situation is that Combinato will detect more clusters / groups than appear to be real units, meaning it is very common to reject clusters / groups and/or merge clusters. As such, the typical outcome of manual curation is to end up with fewer groups than automatically detected.
+- Real units (that can be analyzed) are ideally present across the whole recording. If a unit is only detected during a specific / short time period it is likely an artifact. If it does appear to be a real unit (e.g. has a nice waveform), check for other clusters that might reflect the same unit at different time ranges, in case the unit was split and needs to be recombined.
 - For ISIs, ideally real units should have less than \~3% of spikes within 3 ms.
 
 ### Combinato Output Files
 
 Combinato saves out and edits a custom set of files.
-To move to the next part of the pipeline (converting data to NWB), we need to load
-and extract
+In order to extract the spike time results and add them into a standardized data file,
+as we will do in the next part of the pipeline, we need to load these files and collect
+information of interest from them.
 
 This process can be done with the `extract_sorted.py` Python script that is included
-in the Preprocessing Template. For more information about what files this process loads, and how they are organized, see the sorting related IO functionality in
+in the Preprocessing Template. For more information about what files this process loads,
+and how they are organized, see the sorting related IO functionality in
 [hsntools](https://github.com/HSNPipeline/hsntools/).
 
-Combinato uses the following language within it's files:
+Note that Combinato uses the following language in its output files:
 - `class`: events collected together through the clustering process
 - `group`: clusters joined together by the cluster matching process
 
 ## Run Procedures
 
-The following is the basic process for
+The following is the basic process for running spike sorting procedures:
 - Organize neural data into the expected data structure for the pipeline
 - Use the provided python and shell scripts to run automated event detection
 - Do manual curation (see guidance below) to fine tune spike sorting results
-- Extract the curated spike sorting results
+- Extract the curated spike sorting results so they are available for the next steps
 
 ```
 # Split channel data files to be ready for spike detection

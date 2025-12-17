@@ -7,9 +7,6 @@ spike sorting human single-neuron recordings.
 
 After neural data has been collected, a key pre-processing step is spike sorting.
 
-Note that HSNPipeline does not implement or offer any spike sorters -
-all spike sorting should be done with an existing / external spike sorter.
-
 To support spike sorting, HSNPipeline offers functionality for spike-sorting,
 that is built into the pre-processing template. This template structure includes
 support for doing spike sorting with it's preferred spike sorter (combinato).
@@ -23,16 +20,18 @@ and/or skip ahead to data conversion.
 ## Resources
 
 Spike sorting in HSNPipeline uses several existing tools and resources for managing
-spike sorting. The key resources and tools are briefly described in this section.
+spike sorting. Note that the pipeline does not implement any novel spike sorters,
+and relies upon using existing and adapted external tools
+The key resources and tools are briefly described in this section.
 
-As well as the below mentioned tool, spike sorting in the
+As well as the below mentioned tools, spike sorting in the
 HSNPipeline requires the
 [hsntools](https://hsnpipeline.github.io/hsntools/) module.
 
 ### Combinato
 
 The current template uses [Combinato](https://github.com/HSNPipeline/combinato/)
-which is a Python tool for spike sorting. Note that this link is to a HSNPipeline
+which is a Python module for spike sorting. Note that this link is to a HSNPipeline
 version of `combinato`, with some minor updates to work with the pipeline.
 
 The following materials are available from the developers of `combinato`:

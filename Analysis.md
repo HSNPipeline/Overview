@@ -4,26 +4,27 @@ The final component of the HSNPipeline is a template structure for analyzing the
 
 ## Overview
 
-Once the data is pre-processed and organized into a standard format, the next
-task is to analyze it! While the analysis of any given project will be
-specific to the task and research questions, this section of the pipeline
-provides a structured layout for organizing these analyses.
+Once the data is pre-processed and organized into a standardized format,
+the next task is to analyze it!
+While the analysis of any given project will be specific to the task
+and research questions, this section of the pipeline provides a
+structured layout for organizing these analyses.
 
 ## Resources
 
-As with other sections of this pipeline, the template itself does implement
+As with other sections of this pipeline, the template itself does not implement
 any key tooling, but rather provides an organized structure for human single-neuron
-analyses, that integrate existing external analysis tools.
+analyses, that uses existing analysis tools.
 The key resources and tools are briefly described in this section.
 
-As well as the below mentioned tool, data analysis in the
+As well as the below mentioned tools, data analysis in the
 HSNPipeline requires the
 [hsntools](https://hsnpipeline.github.io/hsntools/) module.
 
 ### SpikeTools
 
 ``spiketools`` is a Python based module for analyzing spiking data,
-including functionality that is developed for analyzing human data.
+including functionality that is specifically designed for analyzing human data.
 
 For more information on ``spiketools``, see:
 - The [spiketools documentation](https://spiketools.github.io/spiketools/)

@@ -35,7 +35,7 @@ This pipeline uses a series of existing external tools, standards, and
 resources to provide a template structure for converting data to a standardized data
 format. The key resources and tools are briefly described in this section.
 
-As well as the below mentioned tool, data conversion in the
+As well as the below mentioned tools, data conversion in the
 HSNPipeline requires the
 [hsntools](https://hsnpipeline.github.io/hsntools/) module.
 
@@ -76,7 +76,7 @@ In order to apply this template to a new task, the following updates are needed:
     - this should  be done by updating `parser.py` and `task.py` in `conv`
 - processing procedures to be applied during the conversion process need to be defined
     - update `process.py` with any pre-processing, potentially adding code to `measures.py`
-- the conversion has to be specified, detailing data should be organized in the NWB file
+- the conversion has to be specified, detailing how data should be organized into the NWB file
     - this can be interactively explored in `notebooks/01-ConvertToNWB.ipynb`
     - this then needs implementing in `scripts/convert_data.py`
 - the scripts and settings need updating for any custom settings / procedures
@@ -86,7 +86,7 @@ In order to apply this template to a new task, the following updates are needed:
 
 After the above, this template should be able to be used for converting data files!
 
-Note that the `notebooks` implement templates that can be run interactively,
+Note that the `notebooks` implement functionality to be run interactively,
 however ultimately the goal is to implement procedures in the `scripts` folder.
 
 ## Run Procedures

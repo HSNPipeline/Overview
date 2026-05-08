@@ -30,9 +30,9 @@ and data analysis.
 This project is described in the following paper:
 
     Donoghue T, Zhang W, Han CZ, Maesta-Pereira & Jacobs J (2026). HSNPipeline: A processing pipeline 
-    for human single-neuron studies. Aperture Neuro, 6(SI 1) DOI: 10.1038/s41586-026-10448-0
+    for human single-neuron studies. Aperture Neuro, 6(SI 1) DOI: 10.52294/001c.160356
 
-Direct Link: https://doi.org/10.1038/s41586-026-10448-0
+Direct Link: https://doi.org/10.52294/001c.160356
 
 ## Templates
 

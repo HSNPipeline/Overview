@@ -5,7 +5,7 @@ HSNPipeline is a pipeline for processing and analyzing single-neuron data from h
 ## Table of Contents
 
 - [Overview](#overview)
-- [Guides](#guides)
+- [Reference](#reference)
 - [Templates](#templates)
 - [Resources](#resources)
 - [Tools](#tools)
@@ -24,6 +24,15 @@ curated and extended such that they support the specifics of human single-neuron
 On this website, you will find guides for key steps of working with the HSNPipeline data,
 including pre-processing & spike sorting, conversion to a standardized data format,
 and data analysis.
+
+## Reference
+
+This project is described in the following paper:
+
+    Donoghue T, Zhang W, Han CZ, Maesta-Pereira & Jacobs J (2026). HSNPipeline: A processing pipeline 
+    for human single-neuron studies. Aperture Neuro, 6(SI 1) DOI: 10.1038/s41586-026-10448-0
+
+Direct Link: https://doi.org/10.1038/s41586-026-10448-0
 
 ## Templates
 
